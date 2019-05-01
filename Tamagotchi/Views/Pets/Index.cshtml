@@ -1,0 +1,23 @@
+@using Tamagotchi.Models
+
+<h1>My Tamagotchis</h1>
+
+<ul>
+@if (Model.Count == 0)
+{
+  <p>You have no Pets!</p>
+}
+@if(Model.Count != 0)
+{
+  @foreach (Pet pet in Model)
+  {
+    <p>Name: @pet.Name</p>
+    <li>I am.. @pet.HowHungry()</li>
+    <li>I feel.. @pet.HowHappy()</li>
+    <li>I @pet.HowRested()</li>
+    <li>@pet.Age</li>
+  }
+}
+</ul>
+
+<a href="/pets/new">Add a new pet</a>

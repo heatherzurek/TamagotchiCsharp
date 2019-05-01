@@ -7,6 +7,25 @@ namespace Tamagotchi.Controllers
   public class PetsController : Controller
   {
 
+    [HttpGet("/pets")]
+    public ActionResult Index()
+    {
+      List<Pet> myPets = Pet.GetAll();
+      return View(myPets);
+    }
+
+    [HttpGet("/pets/new")]
+    public ActionResult New()
+    {
+      return View();
+    }
+
+    [HttpPost("/pets")]
+    public ActionResult Create(string name)
+    {
+      Pet myPet = new Pet(name);
+      return RedirectToAction("Index");
+    }
     // [HttpGet("/items")]
     // public ActionResult Index()
     // {

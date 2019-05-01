@@ -20,6 +20,8 @@ namespace Tamagotchi.Models
       _id = _myPets.Count;
     }
 
+    public string Name { get => _name; }
+    public int Age { get => _age; }
     public int Hunger { get => _hunger; set => _hunger = value; }
     public int Happiness { get => _happiness; set => _happiness = value; }
     public int Rest { get => _rest; set => _rest = value; }
@@ -48,6 +50,91 @@ namespace Tamagotchi.Models
     {
       _myPets.Remove(_myPets[searchId-1]);
     }
+
+    public string HowHungry()
+    {
+      if(_hunger == 5)
+      {
+        return "SO FULL!";
+      }
+      if(_hunger == 4)
+      {
+        return "KINDA FULL..";
+      }
+      if(_hunger == 3)
+      {
+        return "neither hungry, nor full.";
+      }
+      if(_hunger == 2)
+      {
+        return "peckish";
+      }
+      if(_hunger == 1)
+      {
+        return "HUNGRY!";
+      }
+      else
+      {
+        return "dead.";
+      }
+    }
+
+    public string HowHappy()
+    {
+      if(_happiness == 5)
+      {
+        return "SO HAPPY";
+      }
+      if(_happiness == 4)
+      {
+        return "that life is swell..";
+      }
+      if(_happiness == 3)
+      {
+        return "ok";
+      }
+      if(_happiness == 2)
+      {
+        return "moody.";
+      }
+      if(_happiness == 1)
+      {
+        return "sad";
+      }
+      else
+      {
+        return "Died of lonliness";
+      }
+    }
+
+    public string HowRested()
+    {
+      if(_rest == 5)
+      {
+        return "am bouncing off the walls!";
+      }
+      if(_rest == 4)
+      {
+        return "am ready to play";
+      }
+      if(_rest == 3)
+      {
+        return "am normal energy";
+      }
+      if(_rest == 2)
+      {
+        return "need a nap";
+      }
+      if(_rest == 1)
+      {
+        return "AM TIRED.";
+      }
+      else
+      {
+        return "died of sleep deprevation";
+      }
+    }
+
 
   }
 }
