@@ -26,6 +26,27 @@ namespace Tamagotchi.Controllers
       Pet myPet = new Pet(name);
       return RedirectToAction("Index");
     }
+
+    // [HttpGet("/pets/update")]
+    // public string Update()
+    // {
+    //   string updatestring = "Wooooo";
+    //   //List<Pet> myPets = Pet.GetAll();
+    //
+    //   return updatestring;
+    // }
+
+    [HttpGet("/pets/update")]
+    public string Update()
+    {
+      List<Pet> myPets = Pet.GetAll();
+      if (myPets.Count > 0 )
+      {
+        return myPets[0].Hunger.ToString();
+      }
+      return "Nope!";
+    }
+
     // [HttpGet("/items")]
     // public ActionResult Index()
     // {

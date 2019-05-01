@@ -1,8 +1,9 @@
 @using Tamagotchi.Models
 @using System.Timers;
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/scripts.js"></script>
 
 <h1>My Tamagotchis</h1>
-
 <ul>
 @if (Model.Count == 0)
 {
@@ -17,9 +18,12 @@
     <li>I feel.. @pet.HowHappy()</li>
     <li>I @pet.HowRested()</li>
     <li>I am @pet.Age year/s old</li>
-    <li>The application started at  @pet.GetTimer()</li>
+    <li>Your tamagotchi was born on <span id="date"></span> at <span id="time"></span></li>
+    <li id="timer"></li>
   }
 }
 </ul>
-
+<button type="button" name="button">Feed</button>
+<button type="button" name="button">Play with me</button>
+<button type="button" name="button">Nap</button>
 <a href="/pets/new">Add a new pet</a>
