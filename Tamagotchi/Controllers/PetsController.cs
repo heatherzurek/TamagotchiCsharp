@@ -27,15 +27,6 @@ namespace Tamagotchi.Controllers
       return RedirectToAction("Index");
     }
 
-    // [HttpGet("/pets/update")]
-    // public string Update()
-    // {
-    //   string updatestring = "Wooooo";
-    //   //List<Pet> myPets = Pet.GetAll();
-    //
-    //   return updatestring;
-    // }
-
     [HttpGet("/pets/update")]
     public string Update()
     {
@@ -45,6 +36,15 @@ namespace Tamagotchi.Controllers
         return myPets[0].Hunger.ToString();
       }
       return "Nope!";
+    }
+
+
+    [HttpPost("/pets/feed")]
+    public ActionResult Feed()
+    {
+      List<Pet> myPets = Pet.GetAll();
+      myPets[0].Health();
+      return RedirectToAction("Index");
     }
 
     // [HttpGet("/items")]

@@ -6,7 +6,7 @@ namespace Tamagotchi.Models
 {
   public class Pet
   {
-    private int _hunger = 4;
+    private int _hunger = 20;
     private int _happiness = 4;
     private int _rest = 4;
     private string _name;
@@ -45,8 +45,16 @@ namespace Tamagotchi.Models
     {
         Console.WriteLine("The Elapsed event was raised at {0:HH:mm:ss.fff}",
                           e.SignalTime);
-      _hunger--;
+      if (_hunger >= 1)
+      {
+        _hunger--;
+      }
     }
+
+    // public string YourPetDied()
+    // {
+    //
+    // }
 
     public int GetId()
     {
@@ -73,25 +81,31 @@ namespace Tamagotchi.Models
       _myPets.Remove(_myPets[searchId-1]);
     }
 
+    public int Health()
+    {
+      _hunger++;
+      return _hunger;
+    }
+
     public string HowHungry()
     {
-      if(_hunger == 5)
+      if(_hunger >= 25)
       {
         return "SO FULL!";
       }
-      if(_hunger == 4)
+      if(_hunger >= 20)
       {
         return "KINDA FULL..";
       }
-      if(_hunger == 3)
+      if(_hunger >= 15)
       {
         return "neither hungry, nor full.";
       }
-      if(_hunger == 2)
+      if(_hunger >= 10)
       {
         return "peckish";
       }
-      if(_hunger == 1)
+      if(_hunger >= 5)
       {
         return "HUNGRY!";
       }
