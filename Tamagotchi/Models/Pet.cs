@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Timers;
 
 namespace Tamagotchi.Models
 {
@@ -12,12 +13,18 @@ namespace Tamagotchi.Models
     private int _age = 0;
     private static List<Pet> _myPets = new List<Pet> {};
     private int _id;
+    // private System.Timers.Timer _aTimer = new System.Timers.Timer(2000);
+    // _aTimer.Elapsed+=new ElapsedEventHandler(OnTimedEvent);
+    // _aTimer.Interval=5000;
+    // _aTimer.Enabled=true;
+
 
     public Pet (string name)
     {
       _name = name;
       _myPets.Add(this);
       _id = _myPets.Count;
+      SetTimer();
     }
 
     public string Name { get => _name; }
@@ -25,6 +32,25 @@ namespace Tamagotchi.Models
     public int Hunger { get => _hunger; set => _hunger = value; }
     public int Happiness { get => _happiness; set => _happiness = value; }
     public int Rest { get => _rest; set => _rest = value; }
+
+
+    private void SetTimer()
+    {
+      System.Timers.Timer aTimer = new System.Timers.Timer();
+      aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+      aTimer.Interval = 5000;
+      aTimer.Enabled = true;
+    }
+
+    public DateTime GetTimer()
+    {
+      return aTimer;
+    }
+    // private void OnTimedEvent(Object source, ElapsedEventArgs e)
+    // {
+    //     Console.WriteLine("The Elapsed event was raised at {0:HH:mm:ss.fff}",
+    //                       e.SignalTime);
+    // }
 
     public int GetId()
     {
