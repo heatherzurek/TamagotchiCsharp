@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using ToDoList.Models;
+using Tamagotchi.Models;
 using System.Collections.Generic;
 
 namespace Tamagotchi.Controllers
